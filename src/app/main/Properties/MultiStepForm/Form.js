@@ -62,7 +62,7 @@ const Form = () => {
     document_number: propertyData?.doc_num || "",
     docfile: [],
     disputes: propertyData?.disputes || "",
-    furnished: propertyData?.furnished || "",
+    furnshied: propertyData?.furnshied || "",
     govt_price: propertyData?.govt_price || null,
     landmark: propertyData?.landmark || "",
     lift: propertyData?.lift || "",
@@ -561,7 +561,7 @@ const Form = () => {
             <FormControl fullWidth variant="outlined">
               <InputLabel>Furnished</InputLabel>
               <Controller
-                name="furnished"
+                name="furnshied"
                 control={control}
                 render={({ field }) => (
                   <Select
