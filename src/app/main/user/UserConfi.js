@@ -8,6 +8,7 @@ import Users from './Users';
 import UserProfile from './UserProfileDetails';
 import ForgetPassword from '../Properties/Pages/ForgetPassword';
 import ManageProperties from '../Properties/Pages/ManageProperties';
+import ManageIntrests from '../Properties/Pages/ManageIntrests';
 import { authRoles } from 'src/app/auth';
 
 i18next.addResourceBundle('en', 'propertyPage', en);
@@ -38,6 +39,10 @@ const userConfig = {
     {
       path: '/manage/properties',
       element: <ManageProperties />,
+    },
+    {
+      path: '/manage/intrests',
+      element: <ManageIntrests />,
     },
     {
       path: '/user/profile',

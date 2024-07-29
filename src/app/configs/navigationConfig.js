@@ -70,6 +70,12 @@ const navigationConfig = [
         title: 'Areas',
         type: 'item',
         url: '/manage/Areas',
+      },
+      {
+        id: 'manage.intrests',
+        title: 'Intrests',
+        type: 'item',
+        url: '/manage/intrests',
       }
     ],
     

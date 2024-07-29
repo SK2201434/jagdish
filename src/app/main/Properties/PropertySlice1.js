@@ -194,191 +194,11 @@ export const DeleteIntrests = createAsyncThunk(
   }
 );
 
-//jagadeesh code
-
-// export const AddIntrests = createAsyncThunk(
-//   "property/AddIntrests",
-//   async (params, { rejectWithValue }) => {
-//     console.log("Body:", body);
-//     console.log("userIds in the Add intrests:", userId);
-//     const {  userId, isadmin, body } = params;
-
-//     try {
-//       let user_id;
-
-//       // Prioritize userId if provided and isadmin is true
-//       if (isadmin) {
-//         user_id = userId;
-//         console.log("what is the user Ids :",userId)
-//         console.log("what is the user data :",user_id)
-
-//       } else {
-//         // Fall back to user_id from local storage
-//         const user = JSON.parse(localStorage.getItem("user"));
-//         if (!user || !user.uid) throw new Error("User ID not found in local storage");
-//         user_id = user.uid;
-//       }
-
-//       // Construct the Data object
-//       // const Data = { user_id, ...body };
-//       const Data = {
-//         user_id :user_id ,
-
-//         body,
-//       };
-
-//       console.log("Data:", Data);
-//       console.log("Data to be sent:", JSON.stringify(Data));
-//       const response = await axios.put(`${BaseUrl}/register`, Data);
-//       console.log("Response:", response);
-//       return response;
-//     } catch (error) {
-//       console.error("Error in AddIntrests:", error);
-//       return rejectWithValue(error.response?.data || error.message);
-//     }
-//   }
-// // );
-// export const AddIntrests = createAsyncThunk(
-//   "property/AddIntrests",
-//   async (params, { rejectWithValue }) => {
-//     console.log('params ', params);
-//     const { body, isadmin, user_id } = params;
-// console.log("body, isadmin, user_id",body, isadmin)
-// console.log("this is the uid log so keep:",user_id);
-//     try {
-//       let user_ids;
-
-//       console.log("this was the user_id log :",user_id)
-
-//       if (user_id) {
-//         console.log("this was the  Uid in the condiction so check this:",user_id);
-//          user_id = user_id;
-
-//       } else {
-//         // Fall back to user_id from local storage
-//         const user = JSON.parse(localStorage.getItem("user"));
-//         if (!user || !user.uid) throw new Error("User ID not found in local storage");
-//         user_id = user.uid;
-//       }
-//       console.log('type of user id ', typeof(user_id));
-//       // Construct the Data object
-//       const Data = {
-//         user_id,
-//          body,
-//       };
-
-//       console.log("Data",Data)
-
-//       const response = await axios.put(`${BaseUrl}/register`, Data, {
-//         headers: {
-//           'Content-Type': 'application/json',
-//         },
-//       });
-//       console.log("Response:", response);
-//       return response.data;  // Return the actual data from the response
-//     } catch (error) {
-//       console.error("Error in AddIntrests:", error);
-//       return rejectWithValue(error.response?.data || error.message);
-//     }
-//   }
-// );
-
-// export const GetUpdatedJson = createAsyncThunk(
-//   "property/GetUpdatedJson",
-//   async (_, { rejectWithValue }) => {
-//     try {
-//       const response = await axios.get(`${BaseUrl}/getfile`, { responseType: "blob" });
-
-//       const url = URL.createObjectURL(response.data);
-//       const link = document.createElement("a");
-//       link.href = url;
-//       link.setAttribute("download", "data.json");
-//       document.body.appendChild(link);
-//       link.click();
-//       document.body.removeChild(link);
-//       URL.revokeObjectURL(url);
-//       console.log("response of download json",response)
-//       return response.data;
-
-//     } catch (error) {
-//       const errorMessage = JSON.stringify(
-//         error.response?.data || error.message,
-//         null,
-//         2
-//       );
-//       const blob = new Blob([errorMessage], { type: "application/json" });
-//       const url = URL.createObjectURL(blob);
-//       const link = document.createElement("a");
-//       link.href = url;
-//       link.setAttribute("download", "error.json");
-//       document.body.appendChild(link);
-//       link.click();
-//       document.body.removeChild(link);
-//       URL.revokeObjectURL(url);
-
-//       return rejectWithValue(error.response?.data || error.message);
-//     }
-//   }
-// );
-// // export const GetUpdatedJson = createAsyncThunk(
-// export const GetMyIntrests = createAsyncThunk(
-//   "property/GetMyIntrests",
-//   async ({ userId, isadmin }, { rejectWithValue }) => {
-//     console.log("{userId, isadmin}", userId, isadmin);
-//     try {
-//       let user_id;
-//       if (userId) {
-//         console.log(isadmin)
-//         user_id = userId;
-//       } else {
-//         console.log("hii")
-//         const user = JSON.parse(localStorage.getItem("user"));
-//         console.log("is the data:",user)
-//         user_id = user.uid;
-//         if (!user_id) throw new Error("User ID not found in local storage");
-//       }
-
-//       const response = await axios.get(
-//         `${BaseUrl}/register?user_id=${user_id}`
-//       );
-//       console.log("response of get my interest", response);
-//       return response;
-//     } catch (error) {
-//       console.error('Error in GetMyIntrests:', error);
-//       return rejectWithValue(error.response?.data || error.message);
-//     }
-//   }
-// );
-// export const DeleteIntrests = createAsyncThunk(
-//   "property/DeleteIntrests",
-//   async (formData, { rejectWithValue }) => {
-//     try {
-//       const user = JSON.parse(localStorage.getItem("user"));
-//       const user_id = user.uid;
-//       console.log(formData);
-//       const Data = {
-//         user_id: user_id,
-//         body: formData,
-//       };
-//       const response = await axios.post("", Data);
-//       return response;
-//     } catch (error) {
-//       return rejectWithValue(error.response.data);
-//     }
-//   }
-// );
 
 export const PostUserCallRequest = createAsyncThunk(
   "property/PostUserCallRequest",
   async (formData, { rejectWithValue }) => {
     try {
-      // const user = JSON.parse(localStorage.getItem("user"));
-      // const user_id = user.uid;
-
-      // const Data = {
-      // user_id :  user_id ,
-      // userData,
-      // };
       console.log("formData", formData);
       const response = await axios.post(`${BaseUrl}/help`, formData);
       console.log(response);
@@ -492,23 +312,6 @@ export const fetchProperties = createAsyncThunk(
   }
 );
 
-// export const fetchRecentTransactions = createAsyncThunk(
-//   "property/fetchRecentTransactions",
-//   async (arg, { rejectWithValue }) => {
-//     try {
-//       const response = await axios.get(`${BaseUrl}/home`);
-//       console.log("response of recent transaction",response);
-//       // const response = await axios.get(`${BaseUrl}/home`);
-//       const stats = response.data.property_type_count;
-//       const transactions = response.data.property.buy_properties.concat(
-//         response.data.property.sell_properties
-//       );
-//       return {transactions, stats};
-//     } catch (error) {
-//       return rejectWithValue(error.message);
-//     }
-//   }
-// );
 
 export const fetchRecentTransactions = createAsyncThunk(
   "property/fetchRecentTransactions",
@@ -667,60 +470,6 @@ export const addProperty = createAsyncThunk(
 
       const cont_user_id = user.uid;
       const data = {...payload.payload  ,cont_user_id}
-      // Construct data object without formData key
-      // const data = {
-      //   cont_user_id,
-      //   AboutDeveloper: payload.payload.AboutDeveloper || "",
-      //   bhk: payload.payload.bhk || "",
-      //   Flooring: payload.payload.Flooring || "",
-      //   No_bed_rooms: payload.payload.No_bed_rooms || "",
-      //   PowerBackup: payload.payload.PowerBackup || "",
-      //   PropertyAge: payload.payload.PropertyAge || "",
-      //   PropertyStatus: payload.payloadPropertyStatus || "",
-      //   WaterSource: payload.payload.WaterSource || "",
-      //   ad_info: payload.payload.ad_info || "",
-      //   approved_by: payload.payload.approved_by || "",
-      //   bound_wall: payload.payload.bound_wall || "",
-      //   boundry_wall: payload.payload.boundry_wall || "",
-      //   comments: payload.payload.comments || "",
-      //   developments: payload.payload.developments || "",
-      //   dimensions: payload.payload.dimensions || "",
-      //   direction: payload.payload.direction || "",
-      //   disputes: payload.payload.disputes || "",
-      //   district: payload.payload.district || "",
-      //   doc_num: payload.payload.doc_num || payload.payload.document_number || "",
-      //   // docfile: formData.docfile || [],
-      //   furnshied: payload.payload.furnshied || "",
-      //   govt_price: payload.payload.govt_price || null,
-      //   landmark: payload.payload.landmark || "",
-      //   latitude: payload.payload.latitude || 0,
-      //   lift: payload.payload.lift || "",
-      //   listing_type: payload.payload.listing_type || "",
-      //   loan_eligibile: payload.payload.loan_eligibile || false,
-      //   longitude: payload.payload.longitude || 0,
-      //   med_name: payload.payload.med_name || "",
-      //   med_num1: payload.payload.med_num1 || "",
-      //   med_num2: payload.payload.med_num2 || "",
-      //   num_open_sides: payload.payload.num_open_sides || "",
-      //   own_name: payload.payload.own_name || "",
-      //   own_num1: payload.payload.own_num1 || "",
-      //   own_num2: payload.payload.own_num2 || "",
-      //   p_type: payload.payload.p_type || "",
-      //   parking: payload.payload.parking || false,
-      //   price: payload.payload.price || 0,
-      //   prop_name: payload.payload.prop_name || "",
-      //   rating: payload.payload.rating || "",
-      //   reg_loc: payload.payload.reg_loc || "",
-      //   rera: payload.payload.rera || "",
-      //   size: payload.payload.size || 0,
-      //   state: payload.payload.state || "",
-      //   status: payload.payload.status || "",
-      //   survey_number: payload.payload.survey_number || "",
-      //   unit: payload.payload.unit || "",
-      //   user_id: payload.payload.user_id || "",
-      //   v_comments: payload.payload.v_comments || "",
-      //   village: payload.payload.village || "",
-      // };
       console.log(data);
       const response = await axios.post(`${BaseUrl}/property`, data);
       return response.data;
@@ -871,16 +620,7 @@ const propertySlice = createSlice({
           }
         }
       })
-      // .addCase(fetchProperties.fulfilled, (state, action) => {
-      //   const propertyIndex = state.properties.findIndex(
-      //     (property) => property.property_id === action.payload.property_id
-      //   );
-      //   if (propertyIndex !== -1) {
-      //     state.properties[propertyIndex] = action.payload;
-      //   } else {
-      //     state.properties.push(action.payload);
-      //   }
-      // })
+    
       .addCase(fetchProperties.fulfilled, (state, action) => {
         state.properties = action.payload;
       })
